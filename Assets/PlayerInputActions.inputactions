@@ -1,0 +1,45 @@
+{
+    "name": "PlayerInputActions",
+    "maps": [
+        {
+            "name": "ExecuteSchedule",
+            "id": "a605eeb7-c3f8-4fc1-a10a-f1f61cc16da5",
+            "actions": [
+                {
+                    "name": "start",
+                    "type": "Button",
+                    "id": "7e62442d-ba41-46bf-a87c-5e68e1e9248c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9fdbd017-ddcd-4d71-96e8-b53a6feb2365",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4cc05536-6a9c-49cc-aa7b-af881361fbaf",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
