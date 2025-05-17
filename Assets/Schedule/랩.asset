@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026d39f40c4732849bf3dced890f0cb0, type: 3}
+  m_Name: "\uB7A9"
+  m_EditorClassIdentifier: 
+  scheduleName: "\uC0C8 \uC2A4\uCF00\uC904"
+  description: "\uC2A4\uCF00\uC904\uC5D0 \uB300\uD55C \uC124\uBA85\uC785\uB2C8\uB2E4."
+  icon: {fileID: 0}
+  cost: 1
+  baseSuccessRate: 0.7
+  primaryTargetStat: 0
+  primaryStatImprovementAmount: 5
+  stressChangeOnSuccess: 2
+  stressChangeOnFailure: 10
+  canFormConsecutiveBundle: 0
+  minItemsForConsecutiveEffect: 2
+  consecutiveSuccessRateModifierPerN: 0
+  consecutiveStatBonus: 0
+  applyStatBonusPerItemInBundle: 0
+  maxNForSuccessRatePenaltyStack: 0
+  outgoingLinkEffectRules: []

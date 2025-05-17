@@ -172,11 +172,11 @@ public class DraggableScheduleItem : MonoBehaviour, IBeginDragHandler, IDragHand
         else // 유효한 DropZone 위에 있지 않다면
         {
             placeholderParentForDrag = originalParent;
-           // if (placeholder.transform.parent != originalParent)
-           // {              
-            //    placeholder.transform.SetParent(originalParent);
+            if (placeholder.transform.parent != originalParent)
+            {              
+                placeholder.transform.SetParent(originalParent);
                 
-           // }
+            }
           
             // originalParent로 돌아갔을 때 placeholder의 순서를 어떻게 할지 결정
             // 예: placeholder.transform.SetAsLastSibling(); 또는 원래 sibling index (저장해뒀다면)
