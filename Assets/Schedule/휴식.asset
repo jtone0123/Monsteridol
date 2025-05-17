@@ -18,7 +18,7 @@ MonoBehaviour:
   cost: 1
   baseSuccessRate: 1
   primaryTargetStat: 0
-  primaryStatImprovementAmount: 5
+  primaryStatImprovementAmount: 0
   stressChangeOnSuccess: -2
   stressChangeOnFailure: 0
   canFormConsecutiveBundle: 0

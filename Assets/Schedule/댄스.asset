@@ -16,9 +16,9 @@ MonoBehaviour:
   description: "\uC2A4\uCF00\uC904\uC5D0 \uB300\uD55C \uC124\uBA85\uC785\uB2C8\uB2E4."
   icon: {fileID: 0}
   cost: 1
-  baseSuccessRate: 0.7
-  primaryTargetStat: 0
-  primaryStatImprovementAmount: 5
+  baseSuccessRate: 0.8
+  primaryTargetStat: 2
+  primaryStatImprovementAmount: 3
   stressChangeOnSuccess: 2
   stressChangeOnFailure: 10
   canFormConsecutiveBundle: 0

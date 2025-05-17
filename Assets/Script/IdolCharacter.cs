@@ -7,7 +7,7 @@ public enum StatType { None, Vocal, Dance, Rap, Visual, Stamina } // 예시 스탯 �
 
 public class IdolCharacter : MonoBehaviour
 {
-    public string characterName = "아이돌";
+    public string characterName = "idol";
 
     // 스탯 (Dictionary 또는 개별 변수로 관리)
     public Dictionary<StatType, int> stats = new Dictionary<StatType, int>();
