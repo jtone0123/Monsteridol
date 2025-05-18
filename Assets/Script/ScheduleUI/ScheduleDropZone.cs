@@ -216,7 +216,7 @@ public class ScheduleDropZone : MonoBehaviour
         return newIndex;
     }
 
-    public void RefreshLayout(bool animate)
+    public void RefreshLayout(bool animate,bool isUseTween = false)
     {
         KillActiveItemTweens();
         // 활성화된 자식만 카운트하여 실제 아이템이 없을 때 불필요한 계산 방지
@@ -297,10 +297,22 @@ public class ScheduleDropZone : MonoBehaviour
 
                 if (Vector2.Distance(startPos, targetAnchoredPos) > 0.01f)
                 {
-                    Tween t = childRT.DOAnchorPos(targetAnchoredPos, siblingAnimationDuration)
-                        .SetEase(Ease.OutQuad)
-                        .OnKill(() => { /* 필요한 정리 작업 */ });
-                    activeItemTweens.Add(t);
+                    Tween t = null; 
+                 
+                    if(isUseTween)//사용된거 움직일 때
+                    {
+                       t = childRT.DOAnchorPos(targetAnchoredPos, siblingAnimationDuration)
+                       .SetEase(Ease.OutQuad)
+                       .OnKill(() => { /* 필요한 정리 작업 */ });
+                    }
+                    else
+                    {
+                        t = childRT.DOAnchorPos(targetAnchoredPos, siblingAnimationDuration)
+                     .SetEase(Ease.OutQuad)
+                     .OnKill(() => { /* 필요한 정리 작업 */ });
+                    }
+
+                        activeItemTweens.Add(t);
                 }
                 else
                 {

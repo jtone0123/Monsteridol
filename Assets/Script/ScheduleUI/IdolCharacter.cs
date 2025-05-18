@@ -14,7 +14,7 @@ public class IdolCharacter : MonoBehaviour
     public int currentStress = 0;
     public int maxStress = 100; // 최대 스트레스 (예시)
 
-    void Start()
+    void Awake()
     {
         // 초기 스탯 설정
         stats[StatType.Vocal] = 10;

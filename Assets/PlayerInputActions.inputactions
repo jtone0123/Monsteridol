@@ -2,11 +2,11 @@
     "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "ExecuteSchedule",
+            "name": "Gameplay",
             "id": "a605eeb7-c3f8-4fc1-a10a-f1f61cc16da5",
             "actions": [
                 {
-                    "name": "start",
+                    "name": "ExecuteSchedule",
                     "type": "Button",
                     "id": "7e62442d-ba41-46bf-a87c-5e68e1e9248c",
                     "expectedControlType": "",
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "start",
+                    "action": "ExecuteSchedule",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -34,7 +34,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "start",
+                    "action": "ExecuteSchedule",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

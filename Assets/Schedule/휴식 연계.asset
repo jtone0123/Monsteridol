@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: "\uD734\uC2DD \uC5F0\uACC4"
   m_EditorClassIdentifier: 
   effectDescription: "\uC774 \uD6A8\uACFC\uC5D0 \uB300\uD55C \uC124\uBA85\uC785\uB2C8\uB2E4."
-  additionalStatIncreaseAmount: 1
+  additionalStatIncreaseAmount: 0
