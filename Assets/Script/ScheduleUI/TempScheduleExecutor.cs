@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class TempScheduleExecutor : MonoBehaviour
 {
@@ -186,7 +187,13 @@ public class TempScheduleExecutor : MonoBehaviour
         if (executeButton != null) executeButton.interactable = true;
         F_ProcessQueueCoroutine = null;
         uiManager.ShowMainMenuPanel();
-        uiManager.CurrentTurnUpdate();
+        ClearSchedule();
+        SpawnNewScheduleItemTest(0);
+        SpawnNewScheduleItemTest(0);
+        SpawnNewScheduleItemTest(1);
+        SpawnNewScheduleItemTest(1);
+        SpawnNewScheduleItemTest(2);
+        //uiManager.CurrentTurnUpdate();
     }
 
     private void PerformScheduleBundle(ScheduleData dataToExecute, int bundleSizeN, NextScheduleModifiers modifiers)
@@ -273,5 +280,29 @@ public class TempScheduleExecutor : MonoBehaviour
         Debug.Log(effectLog.TrimEnd(' ', ','));
         Debug.Log($"'{dataToExecute.scheduleName}' (묶음 크기: {bundleSizeN}) 실행 완료. 현재 아이돌 상태: {idolCharacter.GetCurrentStatus()}");
         Debug.Log("------------------------------------");
+    }
+   
+    public List<GameObject> scheduleItemPrefab;
+    public Transform availableSchedulesPanel; // Inspector에서 할당할 부모 패널
+
+    public void ClearSchedule()
+    {
+        for (int i = 0; i < availableSchedulesPanel.childCount; i++)
+        {
+            Destroy(availableSchedulesPanel.GetChild(i).gameObject);
+           
+            
+        }
+    }
+    public void SpawnNewScheduleItemTest(int i)
+    {
+        if (scheduleItemPrefab == null || availableSchedulesPanel == null)
+        {
+            Debug.LogError("스케줄 프리팹 또는 부모 패널이 할당되지 않았습니다!");
+            return;
+        }
+           // 1. 프리팹을 사용하여 새 스케줄 아이템 게임 오브젝트를 생성합니다.
+        // Instantiate의 두 번째 파라미터로 부모 Transform을 지정하면 바로 자식으로 설정됩니다.
+        GameObject newScheduleObject = Instantiate(scheduleItemPrefab[i], availableSchedulesPanel);
     }
 }

@@ -15,10 +15,11 @@ public class StatUI : MonoBehaviour
         // 아이돌의 스탯을 UI에 표시
         if (idolStatsText != null && currentIdol != null)
         {
-            idolStatsText.text = $"name: {currentIdol.characterName}\n" +
-                                 $"vocal: {currentIdol.stats[StatType.Vocal]}\n" +
-                                 $"dance: {currentIdol.stats[StatType.Dance]}\n" +
-                                 $"rap: {currentIdol.stats[StatType.Rap]}\n";
+            idolStatsText.text = $"이름: {currentIdol.characterName}\n" +
+                                 $"보컬: {currentIdol.stats[StatType.Vocal]}\n" +
+                                 $"댄스: {currentIdol.stats[StatType.Dance]}\n" +
+                                 $"랩: {currentIdol.stats[StatType.Rap]}\n"+
+                                 $"스트레스: {currentIdol.currentStress}";
                                  
         }
     }

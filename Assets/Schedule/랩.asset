@@ -13,14 +13,9 @@ MonoBehaviour:
   m_Name: "\uB7A9"
   m_EditorClassIdentifier: 
   scheduleName: "\uC0C8 \uC2A4\uCF00\uC904"
-  description: 'success rate:100%
-
-    rap +2
-
-    Consecutive Effect:rap +2
-
-    Stress
-    Change: +2(Sucess),+10(Failure)'
+  description: "\uC131\uACF5 \uD655\uB960:100%\n\uB7A9 +2\n\uC5F0\uC18D\uD6A8\uACFC:
+    \uC2A4\uD0EF \uC0C1\uC2B9\uB7C9 +4\n\uC2A4\uD2B8\uB808\uC2A4 \uBCC0\uD654\uB7C9:
+    +2(\uC131\uACF5),+10(\uC2E4\uD328)"
   icon: {fileID: 0}
   cost: 1
   baseSuccessRate: 0.7

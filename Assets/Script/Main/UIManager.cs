@@ -12,21 +12,21 @@ public class UIManager : MonoBehaviour
     [Header("UI Panels")] // Inspector에서 보기 좋게 그룹화
     public GameObject mainMenuPanel;          // 메인 메뉴 패널
     public GameObject scheduleManagementPanel; // 스케줄 관리 패널
-    public TextMeshProUGUI currentTurnText; // 현재 턴 텍스트 UI
+   // public TextMeshProUGUI currentTurnText; // 현재 턴 텍스트 UI
     // 필요에 따라 다른 패널들도 여기에 추가할 수 있습니다.
     // public GameObject idolDetailPanel;
     // public GameObject settingsPanel;
     int currentTurn = 0;
 
-    public void CurrentTurnUpdate()
-    {
-        currentTurn++;
-        currentTurnText.text = $"<size=200>{currentTurn}</size>";
-    }
+    //public void CurrentTurnUpdate()
+    //{
+     //   currentTurn++;
+     //   currentTurnText.text = $"<size=200>{currentTurn}</size>";
+   // }
     void Start()
     {
 
-        CurrentTurnUpdate();
+        //CurrentTurnUpdate();
 
         // 게임 시작 시 초기 상태 설정: 메인 메뉴만 활성화
         if (mainMenuPanel != null)
