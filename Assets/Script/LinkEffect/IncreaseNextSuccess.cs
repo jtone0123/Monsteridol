@@ -6,8 +6,8 @@ public class IncreaseNextSuccess : BaseOutgoingLinkEffect
 
     [Header("성공률 증가량 설정")]
     [Tooltip("해당 성공률에 추가로 더해질 증가량")]
-    [Range(0f, 1f)]
-    public int additionalStatIncreaseAmount = 1;
+    [Range(0.0f,10.0f)]
+    public float additionalStatIncreaseAmount = 1; // 원래 확률에 10곱한 값
 
     public override void ApplyToNext(IdolCharacter targetIdol, ScheduleData originScheduleData, ScheduleData targetNextScheduleData, NextScheduleModifiers nextScheduleTemporaryModifiers)
     {
@@ -23,6 +23,6 @@ public class IncreaseNextSuccess : BaseOutgoingLinkEffect
 
     public override string GetDescription()
     {
-        return $"다음 스케줄 실행 시 성공률이 {additionalStatIncreaseAmount*100}%만큼 추가로 증가합니다. ({effectDescription})";
+        return $"다음 스케줄 실행 시 성공률이 {additionalStatIncreaseAmount*10}%만큼 추가로 증가합니다. ({effectDescription})";
     }
 }

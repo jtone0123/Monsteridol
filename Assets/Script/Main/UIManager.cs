@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     // 필요에 따라 다른 패널들도 여기에 추가할 수 있습니다.
     // public GameObject idolDetailPanel;
     // public GameObject settingsPanel;
-    int currentTurn = 0;
+    //int currentTurn = 0;
 
     //public void CurrentTurnUpdate()
     //{
