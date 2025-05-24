@@ -702,7 +702,7 @@ Transform:
   m_GameObject: {fileID: 756728791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: 1.56, z: 0}
+  m_LocalPosition: {x: 2.32, y: 1.7, z: 0}
   m_LocalScale: {x: 0.7856, y: 0.7842, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1645,8 +1645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbecd5331b5534a49849762b8432242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  arrivalThreshold: 0.3
+  moveSpeed: 3
+  arrivalThreshold: 1
 --- !u!114 &1404779647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,9 +1660,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentFloorID: 1
-  currentState: 0
+  currentState: 2
   minIdleTimeBeforeWander: 3
   maxIdleTimeBeforeWander: 7
+  bArrived: 0
   finalScheduledTarget: {fileID: 756728792}
 --- !u!1 &2039924770
 GameObject:

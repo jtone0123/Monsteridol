@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
         if (scheduleManagementPanel != null)
         {
-            scheduleManagementPanel.SetActive(false); // 스케줄 관리 패널은 처음에는 비활성화
+            //scheduleManagementPanel.SetActive(false); // 스케줄 관리 패널은 처음에는 비활성화
         }
         else
         {

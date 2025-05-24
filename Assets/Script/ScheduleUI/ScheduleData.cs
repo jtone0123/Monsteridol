@@ -7,6 +7,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewScheduleData", menuName = "MyGame/Schedule Data", order = 1)]
 public class ScheduleData : ScriptableObject
 {
+        
+
     [Header("기본 정보")]
     public string scheduleName = "새 스케줄";
     [TextArea(3, 5)]

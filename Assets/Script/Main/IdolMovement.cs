@@ -114,6 +114,7 @@ public class IdolMovement : MonoBehaviour
         // 따라서, 이 도착 이벤트에 대한 목표는 이제 완료된 것으로 간주하고 null로 설정합니다.
         currentTargetNavPointObject = null;
 
+        
 
         if (arrivedPoint != null)
         {
@@ -135,7 +136,7 @@ public class IdolMovement : MonoBehaviour
         isMoving = false;
         rb.linearVelocity = Vector2.zero;
         currentTargetNavPointObject = null; // 이동 중지 시 현재 목표도 초기화하는 것이 안전할 수 있습니다.
-        // Debug.Log(gameObject.name + " 이동 중지됨.");
+         Debug.Log(gameObject.name + " 이동 중지됨.");
     }
 
     private void FlipSprite(Vector2 moveDirection)

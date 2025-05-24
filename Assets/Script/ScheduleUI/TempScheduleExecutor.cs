@@ -3,15 +3,15 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 
 public class TempScheduleExecutor : MonoBehaviour
 {
     [Header("연결 필수 (Inspector에서 할당)")]
     public ScheduleDropZone scheduleQueuePanel; // 스케줄 아이템들이 배치되는 패널
     public IdolCharacter idolCharacter;      // 스케줄 효과를 받을 아이돌
-    public UIManager uiManager; 
-
+    public UIManager uiManager;
+    public Idol idolMovement; // 아이돌 이동을 위한 스크립트 
 
 
     [Header("실행 설정")]
@@ -31,6 +31,7 @@ public class TempScheduleExecutor : MonoBehaviour
     {
         playerInputActions = new PlayerInputActions();
         pendingModifiersForNextSchedule = new NextScheduleModifiers();
+        idolMovement.OnArrivedAtTarget += StartProcessingQueue; // 아이돌이 목표 지점에 도착했을 때 스케줄 실행
 
         if (scheduleQueuePanel == null) Debug.LogError("TempScheduleExecutor: ScheduleQueuePanel이 Inspector에 할당되지 않았습니다!");
         if (idolCharacter == null) Debug.LogError("TempScheduleExecutor: IdolCharacter가 Inspector에 할당되지 않았습니다!");
@@ -95,15 +96,16 @@ public class TempScheduleExecutor : MonoBehaviour
         Debug.Log("스케줄 큐 자동 실행 시작...");
         if (executeButton != null) executeButton.interactable = false;
 
-        while (scheduleQueuePanel.transform.childCount > 0)
+        if (scheduleQueuePanel.transform.childCount > 0)
         {
+            
             DraggableScheduleItem firstScheduleItemInQueue = scheduleQueuePanel.transform.GetChild(0).GetComponent<DraggableScheduleItem>();
             if (firstScheduleItemInQueue == null || firstScheduleItemInQueue.scheduleData == null)
             {
                 Debug.LogWarning("큐의 첫 번째 아이템이 유효하지 않습니다. 제거합니다.");
                 if (scheduleQueuePanel.transform.childCount > 0) Destroy(scheduleQueuePanel.transform.GetChild(0).gameObject);
                 yield return null; // Destroy 반영 대기
-                continue;
+                yield break; 
             }
 
             ScheduleData currentScheduleData = firstScheduleItemInQueue.scheduleData;
@@ -124,9 +126,11 @@ public class TempScheduleExecutor : MonoBehaviour
                     break;
                 }
             }
-
+            
             if (bundleSizeN > 0)
             {
+                idolMovement.AssignScheduledTarget(firstScheduleItemInQueue.GetComponent<ScheduleNavType>().NavPoint);
+                yield return idolMovement.bArrived; 
                 Debug.Log($"'{currentScheduleData.scheduleName}' 스케줄 묶음 (크기: {bundleSizeN}) 처리 시작.");
                 PerformScheduleBundle(currentScheduleData, bundleSizeN, pendingModifiersForNextSchedule);
                 pendingModifiersForNextSchedule.Reset();
@@ -135,6 +139,11 @@ public class TempScheduleExecutor : MonoBehaviour
                 {
                     if (itemToRemove != null) Destroy(itemToRemove.gameObject);
                 }
+
+                
+                
+                    
+                
 
                 // 중요: Destroy 호출 후, 실제 파괴가 반영될 때까지 한 프레임 대기합니다.
                 yield return null;
@@ -186,14 +195,9 @@ public class TempScheduleExecutor : MonoBehaviour
         Debug.Log("모든 스케줄 실행 완료.");
         if (executeButton != null) executeButton.interactable = true;
         F_ProcessQueueCoroutine = null;
-        uiManager.ShowMainMenuPanel();
-        ClearSchedule();
-        SpawnNewScheduleItemTest(0);
-        SpawnNewScheduleItemTest(0);
-        SpawnNewScheduleItemTest(1);
-        SpawnNewScheduleItemTest(1);
-        SpawnNewScheduleItemTest(2);
-        //uiManager.CurrentTurnUpdate();
+        //uiManager.ShowMainMenuPanel();
+        
+       
     }
 
     private void PerformScheduleBundle(ScheduleData dataToExecute, int bundleSizeN, NextScheduleModifiers modifiers)

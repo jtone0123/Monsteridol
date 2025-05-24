@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq; // LINQ를 사용하기 위해 필요 (예: OrderBy)
+using System.Linq;
+using System; // LINQ를 사용하기 위해 필요 (예: OrderBy)
 
 // Idol.cs
 // 아이돌 캐릭터의 행동, 상태, 데이터를 관리하는 메인 클래스입니다.
@@ -28,6 +29,10 @@ public class Idol : MonoBehaviour
     public float minIdleTimeBeforeWander = 3f;
     [Tooltip("배회 시 다음 목적지 선택 전 대기 시간 (최대)")]
     public float maxIdleTimeBeforeWander = 7f;
+
+    //외부 변수
+    public bool bArrived = false;
+    public Action OnArrivedAtTarget; // 도착 시 호출될 액션 (콜백)
 
     // 내부 변수
     private IdolMovement idolMovement;
@@ -274,6 +279,8 @@ public class Idol : MonoBehaviour
         Debug.Log(gameObject.name + ": 최종 스케줄 목표(" + (finalScheduledTarget != null ? finalScheduledTarget.pointName : "알 수 없음") + ")에 도착!");
         finalScheduledTarget = null;
         intermediateTarget = null;
+        bArrived = true; // 도착 상태 플래그 설정
+        OnArrivedAtTarget?.Invoke(); // 도착 시 호출될 액션 (콜백)
         ChangeState(IdolState.Idle);
     }
 
@@ -283,7 +290,7 @@ public class Idol : MonoBehaviour
         currentTimer = 0f;
         if (currentState == IdolState.Idle)
         {
-            timeToWait = Random.Range(minIdleTimeBeforeWander, maxIdleTimeBeforeWander);
+            timeToWait = UnityEngine.Random.Range(minIdleTimeBeforeWander, maxIdleTimeBeforeWander);
         }
     }
 
@@ -308,7 +315,7 @@ public class Idol : MonoBehaviour
         List<NavPoint> navPointsOnFloor = allNavPointsInScene.Where(p => p.floorID == currentFloorID && !p.isStair).ToList();
         if (navPointsOnFloor.Count > 0)
         {
-            int randomIndex = Random.Range(0, navPointsOnFloor.Count);
+            int randomIndex = UnityEngine.Random.Range(0, navPointsOnFloor.Count);
             return navPointsOnFloor[randomIndex];
         }
         return null;
